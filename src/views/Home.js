@@ -14,7 +14,7 @@ const Home = () => {
   return (
     <div>
       {gender ? (
-        <WizardHorizontal />
+        <WizardHorizontal gender={gender}/>
       ) : (
         <div className="d-flex justify-content-center" style={{ gap: 30 }}>
           <CardeImage image={FemmeEmoji} handleGendre={handleGendre}>

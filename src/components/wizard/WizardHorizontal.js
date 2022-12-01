@@ -5,8 +5,9 @@ import Address from './steps-with-validation/Address'
 import SocialLinks from './steps-with-validation/SocialLinks'
 import PersonalInfo from './steps-with-validation/PersonalInfo'
 import AccountDetails from './steps-with-validation/AccountDetails'
+import './index.css'
 
-const WizardHorizontal = () => {
+const WizardHorizontal = (props) => {
   const [stepper, setStepper] = useState(null)
   const ref = useRef(null)
 
@@ -15,31 +16,31 @@ const WizardHorizontal = () => {
       id: 'account-details',
       title: 'Information Personnelles',
       subtitle: 'Entrez Vos Données',
-      content: <AccountDetails stepper={stepper} type='wizard-horizontal' />
+      content: <AccountDetails stepper={stepper} type='wizard-horizontal' gender={props.gender==='Femme' ? 'Femme' : 'Homme'}/>
     },
     {
       id: 'personal-info',
       title: 'Puberté',
       subtitle: 'Add Personal Info',
-      content: <PersonalInfo stepper={stepper} type='wizard-horizontal' />
+      content: <PersonalInfo stepper={stepper} type='wizard-horizontal'gender={props.gender==='Femme' ? 'Femme' : 'Homme'}/>
     },
     {
       id: 'step-address',
       title: 'Address',
       subtitle: 'Add Address',
-      content: <Address stepper={stepper} type='wizard-horizontal' />
+      content: <Address stepper={stepper} type='wizard-horizontal' gender={props.gender==='Femme' ? 'Femme' : 'Homme'}/>
     },
     {
       id: 'social-links',
       title: 'Social Links',
       subtitle: 'Add Social Links',
-      content: <SocialLinks stepper={stepper} type='wizard-horizontal' />
+      content: <SocialLinks stepper={stepper} type='wizard-horizontal' gender={props.gender==='Femme' ? 'Femme' : 'Homme'}/>
     }
   ]
 
   return (
     <div className='horizontal-wizard'>
-      <Wizard instance={el => setStepper(el)} ref={ref} steps={steps} />
+      <Wizard instance={el => setStepper(el)} ref={ref} steps={steps} gender={props.gender==='Femme' ? 'Femme' : 'Homme'} />
     </div>
   )
 }

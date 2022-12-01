@@ -5,6 +5,7 @@ import WizardVertical from './WizardVertical'
 import WizardHorizontal from './WizardHorizontal'
 import WizardModernVertical from './WizardModernVertical'
 import BreadCrumbs from '@components/breadcrumbs'
+import './index.css'
 
 const Wizard = () => {
   return (

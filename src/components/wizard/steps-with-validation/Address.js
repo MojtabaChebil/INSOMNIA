@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form'
 import { ArrowLeft, ArrowRight } from 'react-feather'
 import { Label, FormGroup, Row, Col, Button, Form, Input } from 'reactstrap'
 
-const Address = ({ stepper, type }) => {
+const Address = ({ stepper, type, gender}) => {
   const { register, errors, handleSubmit, trigger } = useForm()
 
   const onSubmit = () => {
@@ -79,11 +79,11 @@ const Address = ({ stepper, type }) => {
           </FormGroup>
         </Row>
         <div className='d-flex justify-content-between'>
-          <Button.Ripple color='primary' className='btn-prev'>
+          <Button.Ripple type='submit' className={`${gender==='Femme' ? 'back-femme' : 'back-homme'}`}>
             <ArrowLeft size={14} className='align-middle mr-sm-25 mr-0'></ArrowLeft>
             <span className='align-middle d-sm-inline-block d-none'>Previous</span>
           </Button.Ripple>
-          <Button.Ripple type='submit' color='primary' className='btn-next'>
+          <Button.Ripple type='submit' className={`${gender==='Femme' ? 'back-femme' : 'back-homme'}`}>
             <span className='align-middle d-sm-inline-block d-none'>Next</span>
             <ArrowRight size={14} className='align-middle ml-sm-25 ml-0'></ArrowRight>
           </Button.Ripple>

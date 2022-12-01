@@ -8,7 +8,7 @@ import { Label, FormGroup, Row, Col, Button, Form, Input } from 'reactstrap'
 
 import '@styles/react/libs/react-select/_react-select.scss'
 
-const PersonalInfo = ({ stepper, type }) => {
+const PersonalInfo = ({ stepper, type , gender }) => {
   const { register, errors, handleSubmit, trigger } = useForm()
 
   const onSubmit = () => {
@@ -101,11 +101,11 @@ const PersonalInfo = ({ stepper, type }) => {
           </FormGroup>
         </Row>
         <div className='d-flex justify-content-between'>
-          <Button.Ripple color='primary' className='btn-prev' onClick={() => stepper.previous()}>
+          <Button.Ripple type='submit' className={`${gender==='Femme' ? 'back-femme' : 'back-homme'}`} onClick={() => stepper.previous()}>
             <ArrowLeft size={14} className='align-middle mr-sm-25 mr-0'></ArrowLeft>
             <span className='align-middle d-sm-inline-block d-none'>Previous</span>
           </Button.Ripple>
-          <Button.Ripple type='submit' color='primary' className='btn-next'>
+          <Button.Ripple type='submit' className={`${gender==='Femme' ? 'back-femme' : 'back-homme'}`}>
             <span className='align-middle d-sm-inline-block d-none'>Next</span>
             <ArrowRight size={14} className='align-middle ml-sm-25 ml-0'></ArrowRight>
           </Button.Ripple>

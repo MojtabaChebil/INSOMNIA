@@ -1,0 +1,25 @@
+.step.active .step-trigger .background-femme{
+    background-color: #ff648d !important;
+}
+
+.step.active .step-trigger .background-homme{
+    background-color: #64edff !important;
+}
+
+.step.active .step-trigger .bs-stepper-label .color-femme{
+    color: #ff648d !important;
+}
+
+.step.active .step-trigger .bs-stepper-label .color-homme{
+    color: #64edff !important;
+}
+
+.back-femme{
+    background-color: #ff648d !important;
+    border-color: #ff648d !important;
+}
+
+.back-homme{
+    background-color: #64edff !important;
+    border-color: #64edff !important;
+}

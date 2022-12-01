@@ -8,7 +8,7 @@ import { yupResolver } from '@hookform/resolvers/yup'
 import { Form, Label, Input, FormGroup, Row, Col, Button } from 'reactstrap'
 import Select from 'react-select'
 
-const AccountDetails = ({ stepper, type }) => {
+const AccountDetails = ({ stepper, type , gender}) => {
   const SignupSchema = yup.object().shape({
     [`nom-${type}`]: yup.string().required(),
     [`prenom-${type}`]: yup.string().required(),
@@ -128,7 +128,7 @@ const AccountDetails = ({ stepper, type }) => {
             <ArrowLeft size={14} className='align-middle mr-sm-25 mr-0'></ArrowLeft>
             <span className='align-middle d-sm-inline-block d-none'>précédant</span>
           </Button.Ripple>
-          <Button.Ripple type='submit' color='primary' className='btn-next'>
+          <Button.Ripple type='submit' className={`${gender==='Femme' ? 'back-femme' : 'back-homme'}`}>
             <span className='align-middle d-sm-inline-block d-none'>Suivant</span>
             <ArrowRight size={14} className='align-middle ml-sm-25 ml-0'></ArrowRight>
           </Button.Ripple>

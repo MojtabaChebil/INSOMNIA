@@ -48,9 +48,9 @@ const Wizard = forwardRef((props, ref) => {
             data-target={`#${step.id}`}
           >
             <button type='button' className='step-trigger'>
-              <span className='bs-stepper-box'>{step.icon ? step.icon : index + 1}</span>
+            <span className={`bs-stepper-box ${props.gender==='Femme' ? 'background-femme' : 'background-homme'}`} >{step.icon ? step.icon : index + 1}</span>
               <span className='bs-stepper-label'>
-                <span className='bs-stepper-title'>{step.title}</span>
+              <span className={`bs-stepper-title ${props.gender==='Femme' ? 'color-femme' : 'color-homme'}`}>{step.title}</span>
                 {step.subtitle ? <span className='bs-stepper-subtitle'>{step.subtitle}</span> : null}
               </span>
             </button>
