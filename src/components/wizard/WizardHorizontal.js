@@ -13,13 +13,13 @@ const WizardHorizontal = () => {
   const steps = [
     {
       id: 'account-details',
-      title: 'Account Details',
-      subtitle: 'Enter Your Account Details.',
+      title: 'Information Personnelles',
+      subtitle: 'Entrez Vos Données',
       content: <AccountDetails stepper={stepper} type='wizard-horizontal' />
     },
     {
       id: 'personal-info',
-      title: 'Personal Info',
+      title: 'Puberté',
       subtitle: 'Add Personal Info',
       content: <PersonalInfo stepper={stepper} type='wizard-horizontal' />
     },
