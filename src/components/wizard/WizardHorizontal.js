@@ -1,16 +1,30 @@
-import { useRef, useState } from 'react'
+import { useRef, useState,useEffect } from 'react'
 import Wizard from '@components/wizard'
-import { ArrowRight } from 'react-feather'
-import Address from './steps-with-validation/Address'
+import Piberte from './steps-with-validation/Piberte'
 import SocialLinks from './steps-with-validation/SocialLinks'
-import PersonalInfo from './steps-with-validation/PersonalInfo'
 import AccountDetails from './steps-with-validation/AccountDetails'
 import './index.css'
-
+import { GetAllQuestion } from '../../redux/actions/question/Index'
+import { useDispatch, useSelector } from "react-redux";
 const WizardHorizontal = (props) => {
   const [stepper, setStepper] = useState(null)
   const ref = useRef(null)
+  const question = useSelector((state) => state.question);
+  const dispatch = useDispatch();
+  const [questionData, setQuestionData] = useState([]);
+  useEffect(() => {
+    
+      dispatch(GetAllQuestion());
+   
 
+  }, [])
+  useEffect(() => {
+    if (question.success) {
+      setQuestionData(question.data);
+    }
+
+  }, [question])
+  console.log("quest",questionData)
   const steps = [
     {
       id: 'account-details',
@@ -19,22 +33,16 @@ const WizardHorizontal = (props) => {
       content: <AccountDetails stepper={stepper} type='wizard-horizontal' gender={props.gender==='Femme' ? 'Femme' : 'Homme'}/>
     },
     {
-      id: 'personal-info',
-      title: 'Puberté',
-      subtitle: 'Add Personal Info',
-      content: <PersonalInfo stepper={stepper} type='wizard-horizontal'gender={props.gender==='Femme' ? 'Femme' : 'Homme'}/>
-    },
-    {
       id: 'step-address',
-      title: 'Address',
-      subtitle: 'Add Address',
-      content: <Address stepper={stepper} type='wizard-horizontal' gender={props.gender==='Femme' ? 'Femme' : 'Homme'}/>
+      title: 'Puberté',
+      subtitle: 'Puberté',
+      content: <Piberte stepper={stepper} type='wizard-horizontal' gender={props.gender==='Femme' ? 'Femme' : 'Homme' } data={questionData}/>
     },
     {
-      id: 'social-links',
-      title: 'Social Links',
-      subtitle: 'Add Social Links',
-      content: <SocialLinks stepper={stepper} type='wizard-horizontal' gender={props.gender==='Femme' ? 'Femme' : 'Homme'}/>
+      id: 'VIH',
+      title: 'SIDA',
+      subtitle: 'VIH',
+      content: <SocialLinks stepper={stepper} type='wizard-horizontal' gender={props.gender==='Femme' ? 'Femme' : 'Homme'} />
     }
   ]
 

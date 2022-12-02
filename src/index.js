@@ -34,7 +34,8 @@ import './assets/scss/style.scss'
 
 // ** Service Worker
 import * as serviceWorker from './serviceWorker'
-
+import axios from 'axios';
+axios.defaults.baseURL='http://localhost:8080'
 // ** Lazy load app
 const LazyApp = lazy(() => import('./App'))
 
